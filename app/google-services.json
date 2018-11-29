@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "371861116796",
+    "firebase_url": "https://food-link-e6843.firebaseio.com",
+    "project_id": "food-link-e6843",
+    "storage_bucket": "food-link-e6843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371861116796:android:ed8961ef8b7c7c4b",
+        "android_client_info": {
+          "package_name": "com.example.inzeyn.foodlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371861116796-oj6ibj3fr2krvmeejoserqi1drv7j0k6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.inzeyn.foodlink",
+            "certificate_hash": "b8e434ff0564f31991139d5e9a07785240399015"
+          }
+        },
+        {
+          "client_id": "371861116796-hhf8isbhhfrs2o9jhgtesm1e57dlato4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOz_RiorY3pcqXI-uuaH3YkFD-169rbWI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371861116796-hhf8isbhhfrs2o9jhgtesm1e57dlato4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
