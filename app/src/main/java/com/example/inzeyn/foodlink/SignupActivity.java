@@ -1,5 +1,6 @@
 package com.example.inzeyn.foodlink;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,6 +79,8 @@ public class SignupActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 FirebaseUser user = mAuth.getCurrentUser();
                 updateUser(username, name, email,user);
+                Intent myIntent = new Intent(SignupActivity.this, MenuActivity.class);
+                SignupActivity.this.startActivity(myIntent);
 
             }else{
                 Log.i(TAG,"createNewUser fail" + task.getException());
