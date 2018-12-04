@@ -1,14 +1,17 @@
 package com.example.inzeyn.foodlink.Adapters;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.inzeyn.foodlink.Interfaces.ILoadMenuItem;
 import com.example.inzeyn.foodlink.Models.MenuItem;
@@ -30,8 +33,10 @@ class LoadingViewHolder extends RecyclerView.ViewHolder{
 class MenuItemViewHolder extends RecyclerView.ViewHolder {
 
     public TextView title, price;
+    public Button makeToast;
     public MenuItemViewHolder(View menuItemView) {
         super(menuItemView);
+        makeToast = menuItemView.findViewById(R.id.menuFinalBtn);
         title = menuItemView.findViewById(R.id.itemTitle);
         price = menuItemView.findViewById(R.id.itemPrice);
     }
@@ -98,7 +103,14 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             MenuItem menuItem = menuItems.get(position);
             MenuItemViewHolder viewHolder = (MenuItemViewHolder) holder;
             viewHolder.title.setText(menuItems.get(position).getName());
-            viewHolder.price.setText(String.valueOf(menuItems.get(position).getPrice()));
+            viewHolder.price.setText("$"+(String.valueOf(menuItems.get(position).getPrice())));
+            viewHolder.makeToast.setText("+");
+            viewHolder.makeToast.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "Added" , Toast.LENGTH_SHORT).show();
+                }
+            });
         }else if(holder instanceof LoadingViewHolder) {
             LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
             loadingViewHolder.progressBar.setIndeterminate(true);
@@ -113,5 +125,6 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void setLoaded() {
         isLoading = false;
     }
+
 }
 

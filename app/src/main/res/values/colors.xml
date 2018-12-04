@@ -5,4 +5,5 @@
     <color name="colorAccent">#7289da</color>
     <color name="colorBackground">#36393f</color>
     <color name="colorBasicGray">#be2025</color>
+    <color name="transGray">#444444</color>
 </resources>

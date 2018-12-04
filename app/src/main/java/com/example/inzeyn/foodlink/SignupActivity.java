@@ -55,10 +55,12 @@ public class SignupActivity extends AppCompatActivity {
                 final String NAME = name.getText().toString();
                 final String EMAIL = email.getText().toString();
                 final String PASSWORD = password.getText().toString();
-
                 if(USERNAME.isEmpty()||NAME.isEmpty()||EMAIL.isEmpty()||PASSWORD.isEmpty()){
                     // TODO: 11/28/2018  check fields
+                    Toast.makeText(signupBtn.getContext(), "Check fields", Toast.LENGTH_SHORT).show();
                     Log.d(Tagd,"check fields");
+                    signupBtn.setVisibility(View.VISIBLE);
+                    loadingBar.setVisibility(View.INVISIBLE);
                 }else{
                     createNewUser(USERNAME,NAME,EMAIL,PASSWORD);
                 }
@@ -78,8 +80,8 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this, "Authentication success.",
                         Toast.LENGTH_SHORT).show();
                 FirebaseUser user = mAuth.getCurrentUser();
-                updateUser(username, name, email,user);
-                Intent myIntent = new Intent(SignupActivity.this, MenuActivity.class);
+                updateUser(username, name, email, user);
+                Intent myIntent = new Intent(SignupActivity.this, SigninActivity.class);
                 SignupActivity.this.startActivity(myIntent);
 
             }else{
@@ -95,7 +97,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void updateUser(String username, String name, String email,FirebaseUser user) {
-        UserAdapter userAdapter = new UserAdapter(username, email, name);
+        UserAdapter userAdapter = new UserAdapter(username, name, email, user.getUid());
         mFirestore.collection("users").add(userAdapter).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
